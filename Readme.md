@@ -16,6 +16,13 @@ For more detail on the Analytics.js API, check out the [Analytics.js Library Ref
 
 Analytics.js for Platforms is a version of analytics.js built specifically for website creation and e-commerce platforms to give their customers one-click enablement of Google Analytics, Facebook Pixel, Google Adwords, and Segment. For more information, you can check out the [docs for Analytics.js for Platforms](https://segment.com/docs/guides/partners/analyticsjs-for-platforms/). Segment hosts this version of the library for free use on its CDN.
 
+## Building
+```js
+npm run build
+```
+
+It will generate analytics.js and analytics.min.js
+
 ## Contributing
 
 This repository houses a pre-built, open-source version of analytics.js. The core logic of analytics.js is broken out into individual repositories:
