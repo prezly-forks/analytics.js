@@ -36,6 +36,9 @@ each(Integrations, function (Integration, name) {
   analytics.use(Integration)
 })
 
+if (window) {
+  window.analytics = analytics;
+}
 },{"../package.json":114,"./integrations":2,"@segment/analytics.js-core":22,"lodash.foreach":83}],2:[function(require,module,exports){
 /* eslint quote-props: 0 */
 "use strict";
