@@ -36,15 +36,16 @@ each(Integrations, function (name, Integration) {
   analytics.use(Integration)
 })
 
-},{"../package.json":113,"./integrations":2,"@segment/analytics.js-core":22,"lodash.foreach":82}],2:[function(require,module,exports){
+},{"../package.json":114,"./integrations":2,"@segment/analytics.js-core":22,"lodash.foreach":83}],2:[function(require,module,exports){
 /* eslint quote-props: 0 */
 "use strict";
 
 module.exports = {
-  segmentio: require("@segment/analytics.js-integration-segmentio")
+  segmentio: require("@segment/analytics.js-integration-segmentio"),
+  prezly: require('analytics.js-integration-prezly'),
 };
 
-},{"@segment/analytics.js-integration-segmentio":29}],3:[function(require,module,exports){
+},{"@segment/analytics.js-integration-segmentio":29,"analytics.js-integration-prezly":58}],3:[function(require,module,exports){
 'use strict';
 
 /*
@@ -336,7 +337,7 @@ var clone = function clone(obj) {
 
 module.exports = clone;
 
-},{"component-type":69}],6:[function(require,module,exports){
+},{"component-type":70}],6:[function(require,module,exports){
 'use strict';
 
 /*
@@ -1272,7 +1273,7 @@ function ads(query) {
 
 module.exports = ads;
 
-},{"component-querystring":67}],18:[function(require,module,exports){
+},{"component-querystring":68}],18:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -1971,7 +1972,7 @@ module.exports.memory = memory;
 module.exports.store = store;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./cookie":19,"./group":21,"./memory":23,"./normalize":24,"./pageDefaults":25,"./store":26,"./user":27,"@ndhoule/after":3,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/each":8,"@ndhoule/foldl":11,"@ndhoule/keys":13,"@ndhoule/pick":15,"@segment/is-meta":38,"@segment/prevent-default":51,"bind-all":58,"component-emitter":64,"component-event":65,"component-querystring":67,"component-type":69,"debug":71,"is":76,"next-tick":87,"segmentio-facade":96}],19:[function(require,module,exports){
+},{"./cookie":19,"./group":21,"./memory":23,"./normalize":24,"./pageDefaults":25,"./store":26,"./user":27,"@ndhoule/after":3,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/each":8,"@ndhoule/foldl":11,"@ndhoule/keys":13,"@ndhoule/pick":15,"@segment/is-meta":38,"@segment/prevent-default":51,"bind-all":59,"component-emitter":65,"component-event":66,"component-querystring":68,"component-type":70,"debug":72,"is":77,"next-tick":88,"segmentio-facade":97}],19:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2105,7 +2106,7 @@ module.exports = bindAll(new Cookie());
 
 module.exports.Cookie = Cookie;
 
-},{"@ndhoule/clone":5,"@ndhoule/defaults":6,"@segment/top-domain":55,"bind-all":58,"component-cookie":61,"debug":71,"json3":77}],20:[function(require,module,exports){
+},{"@ndhoule/clone":5,"@ndhoule/defaults":6,"@segment/top-domain":55,"bind-all":59,"component-cookie":62,"debug":72,"json3":78}],20:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2348,7 +2349,7 @@ Entity.prototype.load = function() {
 };
 
 
-},{"./cookie":19,"./memory":23,"./store":26,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/extend":10,"@segment/isodate-traverse":39,"debug":71}],21:[function(require,module,exports){
+},{"./cookie":19,"./memory":23,"./store":26,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/extend":10,"@segment/isodate-traverse":39,"debug":72}],21:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2408,7 +2409,7 @@ module.exports = bindAll(new Group());
 
 module.exports.Group = Group;
 
-},{"./entity":20,"bind-all":58,"debug":71,"inherits":74}],22:[function(require,module,exports){
+},{"./entity":20,"bind-all":59,"debug":72,"inherits":75}],22:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2501,7 +2502,7 @@ Memory.prototype.remove = function(key) {
   return true;
 };
 
-},{"@ndhoule/clone":5,"bind-all":58}],24:[function(require,module,exports){
+},{"@ndhoule/clone":5,"bind-all":59}],24:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2594,7 +2595,7 @@ function normalize(msg, list) {
   }
 }
 
-},{"@ndhoule/defaults":6,"@ndhoule/each":8,"@ndhoule/includes":12,"@ndhoule/map":14,"component-type":69,"debug":71}],25:[function(require,module,exports){
+},{"@ndhoule/defaults":6,"@ndhoule/each":8,"@ndhoule/includes":12,"@ndhoule/map":14,"component-type":70,"debug":72}],25:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2658,7 +2659,7 @@ function canonicalUrl(search) {
 
 module.exports = pageDefaults;
 
-},{"@ndhoule/includes":12,"@segment/canonical":36,"component-url":70}],26:[function(require,module,exports){
+},{"@ndhoule/includes":12,"@segment/canonical":36,"component-url":71}],26:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2748,7 +2749,7 @@ module.exports = bindAll(new Store());
 
 module.exports.Store = Store;
 
-},{"@ndhoule/defaults":6,"@segment/store":54,"bind-all":58}],27:[function(require,module,exports){
+},{"@ndhoule/defaults":6,"@segment/store":54,"bind-all":59}],27:[function(require,module,exports){
 'use strict';
 
 /*
@@ -2926,7 +2927,7 @@ module.exports = bindAll(new User());
 
 module.exports.User = User;
 
-},{"./cookie":19,"./entity":20,"bind-all":58,"component-cookie":61,"debug":71,"inherits":74,"uuid":110}],28:[function(require,module,exports){
+},{"./cookie":19,"./entity":20,"bind-all":59,"component-cookie":62,"debug":72,"inherits":75,"uuid":111}],28:[function(require,module,exports){
 module.exports={
   "_args": [
     [
@@ -3583,7 +3584,7 @@ function getTld(domain) {
   return domain.split('.').splice(-2).join('.');
 }
 
-},{"@ndhoule/extend":10,"@ndhoule/keys":13,"@segment/ad-params":17,"@segment/analytics.js-integration":30,"@segment/localstorage-retry":43,"@segment/protocol":52,"@segment/send-json":53,"@segment/top-domain":55,"@segment/utm-params":56,"component-clone":60,"component-cookie":61,"json3":77,"spark-md5":103,"uuid":110,"yields-store":111}],30:[function(require,module,exports){
+},{"@ndhoule/extend":10,"@ndhoule/keys":13,"@segment/ad-params":17,"@segment/analytics.js-integration":30,"@segment/localstorage-retry":43,"@segment/protocol":52,"@segment/send-json":53,"@segment/top-domain":55,"@segment/utm-params":56,"component-clone":61,"component-cookie":62,"json3":78,"spark-md5":104,"uuid":111,"yields-store":112}],30:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3648,7 +3649,7 @@ function createIntegration(name) {
 
 module.exports = createIntegration;
 
-},{"./protos":31,"./statics":32,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/extend":10,"component-bind":59,"debug":33,"slug-component":102}],31:[function(require,module,exports){
+},{"./protos":31,"./statics":32,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/extend":10,"component-bind":60,"debug":33,"slug-component":103}],31:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4131,7 +4132,7 @@ function render(template, locals) {
   }, {}, template.attrs);
 }
 
-},{"@ndhoule/after":3,"@ndhoule/each":8,"@ndhoule/every":9,"@ndhoule/foldl":11,"@segment/fmt":37,"@segment/load-script":41,"analytics-events":57,"component-emitter":64,"is":76,"load-iframe":81,"next-tick":87,"to-no-case":105}],32:[function(require,module,exports){
+},{"@ndhoule/after":3,"@ndhoule/each":8,"@ndhoule/every":9,"@ndhoule/foldl":11,"@segment/fmt":37,"@segment/load-script":41,"analytics-events":57,"component-emitter":65,"is":77,"load-iframe":82,"next-tick":88,"to-no-case":106}],32:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4296,7 +4297,7 @@ function objectify(str) {
   };
 }
 
-},{"@ndhoule/each":8,"@ndhoule/includes":12,"component-emitter":64,"domify":72}],33:[function(require,module,exports){
+},{"@ndhoule/each":8,"@ndhoule/includes":12,"component-emitter":65,"domify":73}],33:[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -4485,7 +4486,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":34,"_process":89}],34:[function(require,module,exports){
+},{"./debug":34,"_process":90}],34:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -4689,7 +4690,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":83}],35:[function(require,module,exports){
+},{"ms":84}],35:[function(require,module,exports){
 var utf8Encode = require('utf8-encode');
 var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
@@ -4726,7 +4727,7 @@ function encode(input) {
 
     return output;
 }
-},{"utf8-encode":108}],36:[function(require,module,exports){
+},{"utf8-encode":109}],36:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4880,7 +4881,7 @@ function array(arr, strict) {
   return arr;
 }
 
-},{"@segment/isodate":40,"component-each":62,"component-type":69}],40:[function(require,module,exports){
+},{"@segment/isodate":40,"component-each":63,"component-type":70}],40:[function(require,module,exports){
 'use strict';
 
 /**
@@ -5030,7 +5031,7 @@ function loadScript(options, cb) {
 
 module.exports = loadScript;
 
-},{"component-type":69,"next-tick":87,"script-onload":90}],42:[function(require,module,exports){
+},{"component-type":70,"next-tick":88,"script-onload":91}],42:[function(require,module,exports){
 'use strict';
 
 var keys = require('@ndhoule/keys');
@@ -5440,7 +5441,7 @@ Queue.prototype._reclaim = function(id) {
 
 module.exports = Queue;
 
-},{"./schedule":44,"./store":45,"@ndhoule/each":8,"component-emitter":64,"debug":71,"uuid":46}],44:[function(require,module,exports){
+},{"./schedule":44,"./store":45,"@ndhoule/each":8,"component-emitter":65,"debug":72,"uuid":46}],44:[function(require,module,exports){
 'use strict';
 
 var each = require('@ndhoule/each');
@@ -5629,7 +5630,7 @@ function isQuotaExceeded(e) {
   return quotaExceeded;
 }
 
-},{"./engine":42,"@ndhoule/each":8,"@ndhoule/keys":13,"json3":77}],46:[function(require,module,exports){
+},{"./engine":42,"@ndhoule/each":8,"@ndhoule/keys":13,"json3":78}],46:[function(require,module,exports){
 var v1 = require('./v1');
 var v4 = require('./v4');
 
@@ -6062,7 +6063,7 @@ function encode(obj) {
   return encodeURIComponent(str);
 }
 
-},{"@segment/base64-encode":35,"has-cors":73,"json3":77,"jsonp":78}],54:[function(require,module,exports){
+},{"@segment/base64-encode":35,"has-cors":74,"json3":78,"jsonp":79}],54:[function(require,module,exports){
 (function (global){
 "use strict"
 
@@ -6235,7 +6236,7 @@ module.exports = (function() {
 }())
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"json3":77}],55:[function(require,module,exports){
+},{"json3":78}],55:[function(require,module,exports){
 'use strict';
 
 /**
@@ -6335,7 +6336,7 @@ domain.cookie = cookie;
 
 exports = module.exports = domain;
 
-},{"component-cookie":61,"component-url":70}],56:[function(require,module,exports){
+},{"component-cookie":62,"component-url":71}],56:[function(require,module,exports){
 'use strict';
 
 /**
@@ -6414,7 +6415,7 @@ function strict(query) {
 module.exports = utm;
 module.exports.strict = strict;
 
-},{"@ndhoule/foldl":11,"component-querystring":67}],57:[function(require,module,exports){
+},{"@ndhoule/foldl":11,"component-querystring":68}],57:[function(require,module,exports){
 
 module.exports = {
   // Promotions
@@ -6484,6 +6485,511 @@ module.exports = {
 },{}],58:[function(require,module,exports){
 'use strict';
 
+/**
+ * Module dependencies.
+ */
+
+var ads = require('@segment/ad-params');
+var clone = require('component-clone');
+var cookie = require('component-cookie');
+var extend = require('@ndhoule/extend');
+var integration = require('@segment/analytics.js-integration');
+var json = require('json3');
+var keys = require('@ndhoule/keys');
+var localstorage = require('yields-store');
+var md5 = require('spark-md5').hash;
+var protocol = require('@segment/protocol');
+var send = require('@segment/send-json');
+var topDomain = require('@segment/top-domain');
+var utm = require('@segment/utm-params');
+var uuid = require('uuid').v4;
+var Queue = require('@segment/localstorage-retry');
+
+/**
+ * Cookie options
+ */
+
+var cookieOptions = {
+  // 1 year
+  maxage: 31536000000,
+  secure: false,
+  path: '/'
+};
+
+/**
+ * Queue options
+ *
+ * for first hour, attempt with backoff
+ *    Sum[k^2, {k, 0, 21}] = 3311000 (55min)
+ * for remaining 23 hours, attempt 1/hr (linear)
+ * total = 45 attempts
+ */
+
+var queueOptions = {
+  maxRetryDelay: 360000, // max interval of 1hr
+  minRetryDelay: 1000, // first attempt (1s)
+  backoffFactor: 2,
+  maxAttempts: 45,
+  maxItems: 100
+};
+
+/**
+ * Expose `Segment` integration.
+ */
+
+var Prezly = exports = module.exports = integration('Prezly')
+  .option('apiKey', '')
+  .option('apiHost', 'api.segment.io/v1')
+  .option('crossDomainIdServers', [])
+  .option('retryQueue', false)
+  .option('addBundledMetadata', false)
+  .option('unbundledIntegrations', []);
+
+/**
+ * Get the store.
+ *
+ * @return {Function}
+ */
+
+exports.storage = function() {
+  return protocol() === 'file:' || protocol() === 'chrome-extension:' ? localstorage : cookie;
+};
+
+/**
+ * Expose global for testing.
+ */
+
+exports.global = window;
+
+/**
+ * Initialize.
+ *
+ * https://github.com/segmentio/segmentio/blob/master/modules/segmentjs/segment.js/v1/segment.js
+ *
+ * @api public
+ */
+
+Prezly.prototype.initialize = function() {
+  var self = this;
+
+  if (this.options.retryQueue) {
+    this._lsqueue = new Queue('segmentio', queueOptions, function(item, done) {
+      // apply sentAt at flush time and reset on each retry
+      // so the tracking-api doesn't interpret a time skew
+      item.msg.sentAt = new Date();
+      // send
+      send(item.url, item.msg, item.headers, function(err, res) {
+        self.debug('sent %O, received %O', item.msg, [err, res]);
+        if (err) return done(err);
+        done(null, res);
+      });
+    });
+
+    this._lsqueue.start();
+  }
+
+  this.ready();
+
+  this.analytics.on('invoke', function(msg) {
+    var action = msg.action();
+    var listener = 'on' + msg.action();
+    self.debug('%s %o', action, msg);
+    if (self[listener]) self[listener](msg);
+    self.ready();
+  });
+
+  // Migrate from old cross domain id cookie names
+  if (this.cookie('segment_cross_domain_id')) {
+    this.cookie('seg_xid', this.cookie('segment_cross_domain_id'));
+    this.cookie('seg_xid_fd', this.cookie('segment_cross_domain_id_from_domain'));
+    this.cookie('seg_xid_ts', this.cookie('segment_cross_domain_id_timestamp'));
+    this.cookie('segment_cross_domain_id', null);
+    this.cookie('segment_cross_domain_id_from_domain', null);
+    this.cookie('segment_cross_domain_id_timestamp', null);
+  }
+
+  // At this moment we intentionally do not want events to be queued while we retrieve the `crossDomainId`
+  // so `.ready` will get called right away and we'll try to figure out `crossDomainId`
+  // separately
+  if (this.options.crossDomainIdServers && this.options.crossDomainIdServers.length > 0) {
+    this.retrieveCrossDomainId();
+  }
+};
+
+/**
+ * Loaded.
+ *
+ * @api private
+ * @return {boolean}
+ */
+
+Prezly.prototype.loaded = function() {
+  return true;
+};
+
+/**
+ * Page.
+ *
+ * @api public
+ * @param {Page} page
+ */
+
+Prezly.prototype.onpage = function(page) {
+  this.enqueue('/p', page.json());
+};
+
+/**
+ * Identify.
+ *
+ * @api public
+ * @param {Identify} identify
+ */
+
+Prezly.prototype.onidentify = function(identify) {
+  this.enqueue('/i', identify.json());
+};
+
+/**
+ * Group.
+ *
+ * @api public
+ * @param {Group} group
+ */
+
+Prezly.prototype.ongroup = function(group) {
+  this.enqueue('/g', group.json());
+};
+
+/**
+ * ontrack.
+ *
+ * TODO: Document this.
+ *
+ * @api private
+ * @param {Track} track
+ */
+
+Prezly.prototype.ontrack = function(track) {
+  var json = track.json();
+  // TODO: figure out why we need traits.
+  delete json.traits;
+  this.enqueue('/t', json);
+};
+
+/**
+ * Alias.
+ *
+ * @api public
+ * @param {Alias} alias
+ */
+
+Prezly.prototype.onalias = function(alias) {
+  var json = alias.json();
+  var user = this.analytics.user();
+  json.previousId = json.previousId || json.from || user.id() || user.anonymousId();
+  json.userId = json.userId || json.to;
+  delete json.from;
+  delete json.to;
+  this.enqueue('/a', json);
+};
+
+/**
+ * Normalize the given `msg`.
+ *
+ * @api private
+ * @param {Object} msg
+ */
+
+Prezly.prototype.normalize = function(msg) {
+  this.debug('normalize %o', msg);
+  var user = this.analytics.user();
+  var global = exports.global;
+  var query = global.location.search;
+  var ctx = msg.context = msg.context || msg.options || {};
+  delete msg.options;
+  msg.writeKey = this.options.apiKey;
+  ctx.userAgent = navigator.userAgent;
+  if (!ctx.library) ctx.library = { name: 'analytics.js', version: this.analytics.VERSION };
+  var crossDomainId = this.cookie('seg_xid');
+  if (crossDomainId) {
+    if (!ctx.traits) {
+      ctx.traits = { crossDomainId: crossDomainId };
+    } else if (!ctx.traits.crossDomainId) {
+      ctx.traits.crossDomainId = crossDomainId;
+    }
+  }
+  // if user provides campaign via context, do not overwrite with UTM qs param
+  if (query && !ctx.campaign) {
+    ctx.campaign = utm(query);
+  }
+  this.referrerId(query, ctx);
+  msg.userId = msg.userId || user.id();
+  msg.anonymousId = user.anonymousId();
+  msg.sentAt = new Date();
+  if (this.options.addBundledMetadata) {
+    var bundled = keys(this.analytics.Integrations);
+    msg._metadata = {
+      bundled: bundled,
+      unbundled: this.options.unbundledIntegrations
+    };
+  }
+  // add some randomness to the messageId checksum
+  msg.messageId = 'ajs-' + md5(json.stringify(msg) + uuid());
+  this.debug('normalized %o', msg);
+  this.ampId(ctx);
+  return msg;
+};
+
+/**
+ * Add amp id if it exists.
+ *
+ * @param {Object} ctx
+ */
+
+Prezly.prototype.ampId = function(ctx) {
+  var ampId = this.cookie('segment_amp_id');
+  if (ampId) ctx.amp = { id: ampId };
+};
+
+/**
+ * Send `obj` to `path`.
+ *
+ * @api private
+ * @param {string} path
+ * @param {Object} obj
+ * @param {Function} fn
+ */
+
+Prezly.prototype.enqueue = function(path, msg, fn) {
+  var url = 'https://' + this.options.apiHost + path;
+  var headers = { 'Content-Type': 'text/plain' };
+  msg = this.normalize(msg);
+  this.debug('enqueueing');
+
+  var self = this;
+  if (this.options.retryQueue) {
+    this._lsqueue.addItem({
+      url: url,
+      headers: headers,
+      msg: msg
+    });
+  } else {
+    send(url, msg, headers, function(err, res) {
+      self.debug('sent %O, received %O', msg, [err, res]);
+      if (fn) {
+        if (err) return fn(err);
+        fn(null, res);
+      }
+    });
+  }
+};
+
+/**
+ * Gets/sets cookies on the appropriate domain.
+ *
+ * @api private
+ * @param {string} name
+ * @param {*} val
+ */
+
+Prezly.prototype.cookie = function(name, val) {
+  var store = Segment.storage();
+  if (arguments.length === 1) return store(name);
+  var global = exports.global;
+  var href = global.location.href;
+  var domain = '.' + topDomain(href);
+  if (domain === '.') domain = '';
+  this.debug('store domain %s -> %s', href, domain);
+  var opts = clone(cookieOptions);
+  opts.domain = domain;
+  this.debug('store %s, %s, %o', name, val, opts);
+  store(name, val, opts);
+  if (store(name)) return;
+  delete opts.domain;
+  this.debug('fallback store %s, %s, %o', name, val, opts);
+  store(name, val, opts);
+};
+
+/**
+ * Add referrerId to context.
+ *
+ * TODO: remove.
+ *
+ * @api private
+ * @param {Object} query
+ * @param {Object} ctx
+ */
+
+Prezly.prototype.referrerId = function(query, ctx) {
+  var stored = this.cookie('s:context.referrer');
+  var ad;
+
+  if (stored) stored = json.parse(stored);
+  if (query) ad = ads(query);
+
+  ad = ad || stored;
+
+  if (!ad) return;
+  ctx.referrer = extend(ctx.referrer || {}, ad);
+  this.cookie('s:context.referrer', json.stringify(ad));
+};
+
+
+/**
+ * retrieveCrossDomainId.
+ *
+ * @api private
+ * @param {function) callback => err, {crossDomainId, fromServer, timestamp}
+ */
+Prezly.prototype.retrieveCrossDomainId = function(callback) {
+  if (!this.options.crossDomainIdServers) {
+    if (callback) {
+      callback('crossDomainId not enabled', null);
+    }
+    return;
+  }
+  if (!this.cookie('seg_xid')) {
+    var self = this;
+    var writeKey = this.options.apiKey;
+
+    // Exclude the current domain from the list of servers we're querying
+    var currentTld = getTld(window.location.hostname);
+    var domains = [];
+    for (var i=0; i<this.options.crossDomainIdServers.length; i++) {
+      var domain = this.options.crossDomainIdServers[i];
+      if (getTld(domain) !== currentTld) {
+        domains.push(domain);
+      }
+    }
+
+    getCrossDomainIdFromServerList(domains, writeKey, function(err, res) {
+      if (err) {
+        // We optimize for no conflicting xid as much as possible. So bail out if there is an
+        // error and we cannot be sure that xid does not exist on any other domains
+        if (callback) {
+          callback(err, null);
+        }
+        return;
+      }
+      var crossDomainId = null;
+      var fromDomain = null;
+      if (res) {
+        crossDomainId = res.id;
+        fromDomain = res.domain;
+      } else {
+        crossDomainId = uuid();
+        fromDomain = window.location.hostname;
+      }
+      var currentTimeMillis = (new Date()).getTime();
+      self.cookie('seg_xid', crossDomainId);
+      // Not actively used. Saving for future conflict resolution purposes
+      self.cookie('seg_xid_fd', fromDomain);
+      self.cookie('seg_xid_ts', currentTimeMillis);
+      self.analytics.identify({
+        crossDomainId: crossDomainId
+      });
+      if (callback) {
+        callback(null, {
+          crossDomainId: crossDomainId,
+          fromDomain: fromDomain,
+          timestamp: currentTimeMillis
+        });
+      }
+    });
+  }
+};
+
+/**
+ * getCrossDomainIdFromServers
+ * @param {Array} domains
+ * @param {string} writeKey
+ * @param {function} callback => err, {domain, id}
+ */
+function getCrossDomainIdFromServerList(domains, writeKey, callback) {
+  // Should not happen but special case
+  if (domains.length === 0) {
+    callback(null, null);
+  }
+  var crossDomainIdFound = false;
+  var finishedRequests = 0;
+  var error = null;
+  for (var i=0; i<domains.length; i++) {
+    var domain = domains[i];
+
+    getCrossDomainIdFromSingleServer(domain, writeKey, function(err, res) {
+      finishedRequests++;
+      if (err) {
+        // if request against a particular domain fails, we won't early exit
+        // but rather wait and see if requests to other domains succeed
+        error = err;
+      } else if (res && res.id && !crossDomainIdFound) {
+        // If we found an xid from any of the servers, we'll just early exit and callback
+        crossDomainIdFound = true;
+        callback(null, res);
+      }
+      if (finishedRequests === domains.length && !crossDomainIdFound) {
+        // Error is non-null if we encountered an issue, otherwise error will be null
+        // meaning that no domains in the list has an xid for current user
+        callback(error, null);
+      }
+    });
+  }
+}
+
+/**
+ * getCrossDomainId
+ * @param {Array} domain
+ * @param {string} writeKey
+ * @param {function} callback => err, {domain, id}
+ */
+function getCrossDomainIdFromSingleServer(domain, writeKey, callback) {
+  var endpoint = 'https://' + domain + '/v1/id/' + writeKey;
+  getJson(endpoint, function(err, res) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, {
+        domain: domain,
+        id: res && res.id || null
+      });
+    }
+  });
+}
+
+/**
+ * getJson
+ * @param {string} url
+ * @param {function} callback => err, json
+ */
+function getJson(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.withCredentials = true;
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        callback(null, xhr.responseText ? json.parse(xhr.responseText) : null);
+      } else {
+        callback(xhr.statusText || 'Unknown Error', null);
+      }
+    }
+  };
+  xhr.send();
+}
+
+/**
+ * getTld
+ * Get domain.com from subdomain.domain.com, etc.
+ * @param {string} domain
+ * @return {string} tld
+ */
+function getTld(domain) {
+  return domain.split('.').splice(-2).join('.');
+}
+
+},{"@ndhoule/extend":10,"@ndhoule/keys":13,"@segment/ad-params":17,"@segment/analytics.js-integration":30,"@segment/localstorage-retry":43,"@segment/protocol":52,"@segment/send-json":53,"@segment/top-domain":55,"@segment/utm-params":56,"component-clone":61,"component-cookie":62,"json3":78,"spark-md5":104,"uuid":111,"yields-store":112}],59:[function(require,module,exports){
+'use strict';
+
 var bind = require('component-bind');
 
 function bindAll(obj) {
@@ -6499,7 +7005,7 @@ function bindAll(obj) {
 
 module.exports = bindAll;
 
-},{"component-bind":59}],59:[function(require,module,exports){
+},{"component-bind":60}],60:[function(require,module,exports){
 /**
  * Slice reference.
  */
@@ -6524,7 +7030,7 @@ module.exports = function(obj, fn){
   }
 };
 
-},{}],60:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -6583,7 +7089,7 @@ function clone(obj){
   }
 }
 
-},{"component-type":69,"type":69}],61:[function(require,module,exports){
+},{"component-type":70,"type":70}],62:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -6716,7 +7222,7 @@ function decode(value) {
   }
 }
 
-},{"debug":71}],62:[function(require,module,exports){
+},{"debug":72}],63:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -6807,7 +7313,7 @@ function array(obj, fn, ctx) {
   }
 }
 
-},{"component-type":63,"to-function":104,"type":63}],63:[function(require,module,exports){
+},{"component-type":64,"to-function":105,"type":64}],64:[function(require,module,exports){
 
 /**
  * toString ref.
@@ -6841,7 +7347,7 @@ module.exports = function(val){
   return typeof val;
 };
 
-},{}],64:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -7006,7 +7512,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],65:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 var bind = window.addEventListener ? 'addEventListener' : 'attachEvent',
     unbind = window.removeEventListener ? 'removeEventListener' : 'detachEvent',
     prefix = bind !== 'addEventListener' ? 'on' : '';
@@ -7042,7 +7548,7 @@ exports.unbind = function(el, type, fn, capture){
   el[unbind](prefix + type, fn, capture || false);
   return fn;
 };
-},{}],66:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 /**
  * Global Names
  */
@@ -7129,7 +7635,7 @@ function prefixed(str) {
   };
 }
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -7236,7 +7742,7 @@ exports.stringify = function(obj){
   return pairs.join('&');
 };
 
-},{"trim":106,"type":68}],68:[function(require,module,exports){
+},{"trim":107,"type":69}],69:[function(require,module,exports){
 /**
  * toString ref.
  */
@@ -7272,7 +7778,7 @@ module.exports = function(val){
   return typeof val;
 };
 
-},{}],69:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 /**
  * toString ref.
  */
@@ -7320,7 +7826,7 @@ function isBuffer(obj) {
     ))
 }
 
-},{}],70:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 
 /**
  * Parse the given `url`.
@@ -7404,7 +7910,7 @@ function port (protocol){
   }
 }
 
-},{}],71:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 
 /**
  * Expose `debug()` as the module.
@@ -7543,7 +8049,7 @@ try {
   if (window.localStorage) debug.enable(localStorage.debug);
 } catch(e){}
 
-},{}],72:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 
 /**
  * Expose `parse`.
@@ -7657,7 +8163,7 @@ function parse(html, doc) {
   return fragment;
 }
 
-},{}],73:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 
 /**
  * Module exports.
@@ -7676,7 +8182,7 @@ try {
   module.exports = false;
 }
 
-},{}],74:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -7701,12 +8207,12 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],75:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 
 module.exports = function isEmail (string) {
     return (/.+\@.+\..+/).test(string);
 };
-},{}],76:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 /* globals window, HTMLElement */
 
 'use strict';
@@ -8508,7 +9014,7 @@ is.symbol = function (value) {
 
 module.exports = is;
 
-},{}],77:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 (function (global){
 /*! JSON v3.3.2 | http://bestiejs.github.io/json3 | Copyright 2012-2014, Kit Cambridge | http://kit.mit-license.org */
 ;(function () {
@@ -9414,7 +9920,7 @@ module.exports = is;
 }).call(this);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],78:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 /**
  * Module dependencies
  */
@@ -9513,11 +10019,11 @@ function jsonp(url, opts, fn){
   return cancel;
 }
 
-},{"debug":79}],79:[function(require,module,exports){
+},{"debug":80}],80:[function(require,module,exports){
 arguments[4][33][0].apply(exports,arguments)
-},{"./debug":80,"_process":89,"dup":33}],80:[function(require,module,exports){
+},{"./debug":81,"_process":90,"dup":33}],81:[function(require,module,exports){
 arguments[4][34][0].apply(exports,arguments)
-},{"dup":34,"ms":83}],81:[function(require,module,exports){
+},{"dup":34,"ms":84}],82:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -9579,7 +10085,7 @@ module.exports = function loadIframe(options, fn){
   return iframe;
 };
 
-},{"is":76,"next-tick":87,"script-onload":90}],82:[function(require,module,exports){
+},{"is":77,"next-tick":88,"script-onload":91}],83:[function(require,module,exports){
 /**
  * lodash (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
@@ -10146,7 +10652,7 @@ function identity(value) {
 
 module.exports = forEach;
 
-},{}],83:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -10300,7 +10806,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],84:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 'use strict';
 
 var is = require('is');
@@ -10345,7 +10851,7 @@ function toMs(num) {
   return num;
 }
 
-},{"./milliseconds":85,"./seconds":86,"@segment/isodate":40,"is":76}],85:[function(require,module,exports){
+},{"./milliseconds":86,"./seconds":87,"@segment/isodate":40,"is":77}],86:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10377,7 +10883,7 @@ exports.parse = function(millis) {
   return new Date(millis);
 };
 
-},{}],86:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10409,7 +10915,7 @@ exports.parse = function(seconds) {
   return new Date(millis);
 };
 
-},{}],87:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -10477,7 +10983,7 @@ module.exports = (function () {
 }());
 
 }).call(this,require('_process'))
-},{"_process":89}],88:[function(require,module,exports){
+},{"_process":90}],89:[function(require,module,exports){
 
 var identity = function(_){ return _; };
 
@@ -10631,7 +11137,7 @@ function isFunction(val) {
   return typeof val === 'function';
 }
 
-},{}],89:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -10817,7 +11323,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],90:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 
 // https://github.com/thirdpartyjs/thirdpartyjs-code/blob/master/examples/templates/02/loading-files/index.html
 
@@ -10872,7 +11378,7 @@ function attach(el, fn){
   });
 }
 
-},{}],91:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10911,7 +11417,7 @@ module.exports = function(proto) {
   }
 };
 
-},{"obj-case":88}],92:[function(require,module,exports){
+},{"obj-case":89}],93:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10982,7 +11488,7 @@ Alias.prototype.to = Alias.prototype.userId;
 
 module.exports = Alias;
 
-},{"./facade":93,"./utils":101}],93:[function(require,module,exports){
+},{"./facade":94,"./utils":102}],94:[function(require,module,exports){
 'use strict';
 
 var address = require('./address');
@@ -11296,7 +11802,7 @@ function transform(obj) {
 
 module.exports = Facade;
 
-},{"./address":91,"./is-enabled":97,"./utils":101,"@segment/isodate-traverse":39,"new-date":84,"obj-case":88}],94:[function(require,module,exports){
+},{"./address":92,"./is-enabled":98,"./utils":102,"@segment/isodate-traverse":39,"new-date":85,"obj-case":89}],95:[function(require,module,exports){
 'use strict';
 
 /**
@@ -11417,7 +11923,7 @@ Group.prototype.properties = function() {
 
 module.exports = Group;
 
-},{"./facade":93,"./utils":101,"is-email":75,"new-date":84}],95:[function(require,module,exports){
+},{"./facade":94,"./utils":102,"is-email":76,"new-date":85}],96:[function(require,module,exports){
 'use strict';
 
 var Facade = require('./facade');
@@ -11662,7 +12168,7 @@ Identify.prototype.birthday = Facade.proxy('traits.birthday');
 
 module.exports = Identify;
 
-},{"./facade":93,"./utils":101,"is-email":75,"new-date":84,"obj-case":88,"trim":106}],96:[function(require,module,exports){
+},{"./facade":94,"./utils":102,"is-email":76,"new-date":85,"obj-case":89,"trim":107}],97:[function(require,module,exports){
 'use strict';
 
 var Facade = require('./facade');
@@ -11684,7 +12190,7 @@ Facade.Screen = require('./screen');
 
 module.exports = Facade;
 
-},{"./alias":92,"./facade":93,"./group":94,"./identify":95,"./page":98,"./screen":99,"./track":100}],97:[function(require,module,exports){
+},{"./alias":93,"./facade":94,"./group":95,"./identify":96,"./page":99,"./screen":100,"./track":101}],98:[function(require,module,exports){
 'use strict';
 
 /**
@@ -11707,7 +12213,7 @@ module.exports = function(integration) {
   return !disabled[integration];
 };
 
-},{}],98:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 'use strict';
 
 var inherit = require('./utils').inherit;
@@ -11856,7 +12362,7 @@ Page.prototype.track = function(name) {
 
 module.exports = Page;
 
-},{"./facade":93,"./track":100,"./utils":101,"is-email":75}],99:[function(require,module,exports){
+},{"./facade":94,"./track":101,"./utils":102,"is-email":76}],100:[function(require,module,exports){
 'use strict';
 
 var inherit = require('./utils').inherit;
@@ -11928,7 +12434,7 @@ Screen.prototype.track = function(name) {
 
 module.exports = Screen;
 
-},{"./page":98,"./track":100,"./utils":101}],100:[function(require,module,exports){
+},{"./page":99,"./track":101,"./utils":102}],101:[function(require,module,exports){
 'use strict';
 
 var inherit = require('./utils').inherit;
@@ -12255,14 +12761,14 @@ function currency(val) {
 
 module.exports = Track;
 
-},{"./facade":93,"./identify":95,"./utils":101,"is-email":75,"obj-case":88}],101:[function(require,module,exports){
+},{"./facade":94,"./identify":96,"./utils":102,"is-email":76,"obj-case":89}],102:[function(require,module,exports){
 'use strict';
 
 exports.inherit = require('inherits');
 exports.clone = require('@ndhoule/clone');
 exports.type = require('type-component');
 
-},{"@ndhoule/clone":5,"inherits":74,"type-component":107}],102:[function(require,module,exports){
+},{"@ndhoule/clone":5,"inherits":75,"type-component":108}],103:[function(require,module,exports){
 
 /**
  * Generate a slug from the given `str`.
@@ -12287,7 +12793,7 @@ module.exports = function (str, options) {
     .replace(/ +/g, options.separator || '-')
 };
 
-},{}],103:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 (function (factory) {
     if (typeof exports === 'object') {
         // Node/CommonJS
@@ -12992,7 +13498,7 @@ module.exports = function (str, options) {
     return SparkMD5;
 }));
 
-},{}],104:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 
 /**
  * Module Dependencies
@@ -13146,7 +13652,7 @@ function stripNested (prop, str, val) {
   });
 }
 
-},{"component-props":66,"props":66}],105:[function(require,module,exports){
+},{"component-props":67,"props":67}],106:[function(require,module,exports){
 
 /**
  * Expose `toNoCase`.
@@ -13218,7 +13724,7 @@ function uncamelize (string) {
     return previous + ' ' + uppers.toLowerCase().split('').join(' ');
   });
 }
-},{}],106:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 
 exports = module.exports = trim;
 
@@ -13234,7 +13740,7 @@ exports.right = function(str){
   return str.replace(/\s*$/, '');
 };
 
-},{}],107:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 
 /**
  * toString ref.
@@ -13266,7 +13772,7 @@ module.exports = function(val){
   return typeof val;
 };
 
-},{}],108:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 module.exports = encode;
 
 function encode(string) {
@@ -13294,7 +13800,7 @@ function encode(string) {
 
     return utftext;
 }
-},{}],109:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 (function (global){
 
 var rng;
@@ -13330,7 +13836,7 @@ module.exports = rng;
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],110:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 //     uuid.js
 //
 //     Copyright (c) 2010-2012 Robert Kieffer
@@ -13515,7 +14021,7 @@ uuid.unparse = unparse;
 
 module.exports = uuid;
 
-},{"./rng":109}],111:[function(require,module,exports){
+},{"./rng":110}],112:[function(require,module,exports){
 
 /**
  * dependencies.
@@ -13610,7 +14116,7 @@ function all(){
   return ret;
 }
 
-},{"each":62,"unserialize":112}],112:[function(require,module,exports){
+},{"each":63,"unserialize":113}],113:[function(require,module,exports){
 
 /**
  * Unserialize the given "stringified" javascript.
@@ -13627,7 +14133,7 @@ module.exports = function(val){
   }
 };
 
-},{}],113:[function(require,module,exports){
+},{}],114:[function(require,module,exports){
 module.exports={
   "name": "analytics.js",
   "author": "Segment.io <friends@segment.io>",
@@ -13657,6 +14163,7 @@ module.exports={
   "dependencies": {
     "@segment/analytics.js-core": "^3.0.0",
     "@segment/analytics.js-integration-segmentio": "github:segment-integrations/analytics.js-integration-segmentio",
+    "analytics.js-integration-prezly": "github:prezly/analytics.js-integration-prezly",
     "lodash.foreach": "^4.5.0"
   },
   "devDependencies": {
