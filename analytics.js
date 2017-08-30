@@ -32,7 +32,7 @@ exports.VERSION = require('../package.json').version
  * Add integrations.
  */
 
-each(Integrations, function (name, Integration) {
+each(Integrations, function (Integration, name) {
   analytics.use(Integration)
 })
 
