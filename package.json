@@ -20,7 +20,7 @@
   "main": "analytics.js",
   "scripts": {
     "test": "make test",
-    "analytics.js": "browserify lib/index.js -o analytics.js",
+    "analytics.js": "browserify lib/index.js  --standalone analytics > analytics.js",
     "analytics.min.js": "browserify -t envify -t uglifyify analytics.js -o analytics.min.js",
     "build": "npm run analytics.js && npm run analytics.min.js"
   },
