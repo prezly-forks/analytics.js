@@ -28,7 +28,7 @@
     "@segment/analytics.js-core": "^3.0.0",
     "@segment/analytics.js-integration-segmentio": "github:segment-integrations/analytics.js-integration-segmentio",
     "analytics.js-integration-prezly": "github:prezly/analytics.js-integration-prezly",
-    "lodash.foreach": "^4.5.0"
+    "component-each": "github:component/each"
   },
   "devDependencies": {
     "browserify": "^14.4.0",

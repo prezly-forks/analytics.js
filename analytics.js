@@ -7,7 +7,7 @@
 
 var analytics = require("@segment/analytics.js-core");
 var Integrations = require("./integrations");
-var each = require("lodash.foreach");
+var each = require("component-each");
 
 /**
  * Expose the `analytics` singleton.
@@ -31,11 +31,10 @@ exports.VERSION = require("../package.json").version;
  * Add integrations.
  */
 
-each(Integrations, function(Integration, name) {
+each(Integrations, function (name, Integration) {
   analytics.use(Integration);
 });
-
-},{"../package.json":114,"./integrations":2,"@segment/analytics.js-core":22,"lodash.foreach":83}],2:[function(require,module,exports){
+},{"../package.json":113,"./integrations":2,"@segment/analytics.js-core":22,"component-each":63}],2:[function(require,module,exports){
 /* eslint quote-props: 0 */
 "use strict";
 
@@ -1971,7 +1970,7 @@ module.exports.memory = memory;
 module.exports.store = store;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./cookie":19,"./group":21,"./memory":23,"./normalize":24,"./pageDefaults":25,"./store":26,"./user":27,"@ndhoule/after":3,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/each":8,"@ndhoule/foldl":11,"@ndhoule/keys":13,"@ndhoule/pick":15,"@segment/is-meta":38,"@segment/prevent-default":51,"bind-all":59,"component-emitter":65,"component-event":66,"component-querystring":68,"component-type":70,"debug":72,"is":77,"next-tick":88,"segmentio-facade":97}],19:[function(require,module,exports){
+},{"./cookie":19,"./group":21,"./memory":23,"./normalize":24,"./pageDefaults":25,"./store":26,"./user":27,"@ndhoule/after":3,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/each":8,"@ndhoule/foldl":11,"@ndhoule/keys":13,"@ndhoule/pick":15,"@segment/is-meta":38,"@segment/prevent-default":51,"bind-all":59,"component-emitter":65,"component-event":66,"component-querystring":68,"component-type":70,"debug":72,"is":77,"next-tick":87,"segmentio-facade":96}],19:[function(require,module,exports){
 'use strict';
 
 /**
@@ -2926,7 +2925,7 @@ module.exports = bindAll(new User());
 
 module.exports.User = User;
 
-},{"./cookie":19,"./entity":20,"bind-all":59,"component-cookie":62,"debug":72,"inherits":75,"uuid":111}],28:[function(require,module,exports){
+},{"./cookie":19,"./entity":20,"bind-all":59,"component-cookie":62,"debug":72,"inherits":75,"uuid":110}],28:[function(require,module,exports){
 module.exports={
   "_args": [
     [
@@ -3583,7 +3582,7 @@ function getTld(domain) {
   return domain.split('.').splice(-2).join('.');
 }
 
-},{"@ndhoule/extend":10,"@ndhoule/keys":13,"@segment/ad-params":17,"@segment/analytics.js-integration":30,"@segment/localstorage-retry":43,"@segment/protocol":52,"@segment/send-json":53,"@segment/top-domain":55,"@segment/utm-params":56,"component-clone":61,"component-cookie":62,"json3":78,"spark-md5":104,"uuid":111,"yields-store":112}],30:[function(require,module,exports){
+},{"@ndhoule/extend":10,"@ndhoule/keys":13,"@segment/ad-params":17,"@segment/analytics.js-integration":30,"@segment/localstorage-retry":43,"@segment/protocol":52,"@segment/send-json":53,"@segment/top-domain":55,"@segment/utm-params":56,"component-clone":61,"component-cookie":62,"json3":78,"spark-md5":103,"uuid":110,"yields-store":111}],30:[function(require,module,exports){
 'use strict';
 
 /**
@@ -3648,7 +3647,7 @@ function createIntegration(name) {
 
 module.exports = createIntegration;
 
-},{"./protos":31,"./statics":32,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/extend":10,"component-bind":60,"debug":33,"slug-component":103}],31:[function(require,module,exports){
+},{"./protos":31,"./statics":32,"@ndhoule/clone":5,"@ndhoule/defaults":6,"@ndhoule/extend":10,"component-bind":60,"debug":33,"slug-component":102}],31:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4131,7 +4130,7 @@ function render(template, locals) {
   }, {}, template.attrs);
 }
 
-},{"@ndhoule/after":3,"@ndhoule/each":8,"@ndhoule/every":9,"@ndhoule/foldl":11,"@segment/fmt":37,"@segment/load-script":41,"analytics-events":57,"component-emitter":65,"is":77,"load-iframe":82,"next-tick":88,"to-no-case":106}],32:[function(require,module,exports){
+},{"@ndhoule/after":3,"@ndhoule/each":8,"@ndhoule/every":9,"@ndhoule/foldl":11,"@segment/fmt":37,"@segment/load-script":41,"analytics-events":57,"component-emitter":65,"is":77,"load-iframe":82,"next-tick":87,"to-no-case":105}],32:[function(require,module,exports){
 'use strict';
 
 /**
@@ -4485,7 +4484,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":34,"_process":90}],34:[function(require,module,exports){
+},{"./debug":34,"_process":89}],34:[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -4689,7 +4688,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":84}],35:[function(require,module,exports){
+},{"ms":83}],35:[function(require,module,exports){
 var utf8Encode = require('utf8-encode');
 var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 
@@ -4726,7 +4725,7 @@ function encode(input) {
 
     return output;
 }
-},{"utf8-encode":109}],36:[function(require,module,exports){
+},{"utf8-encode":108}],36:[function(require,module,exports){
 'use strict';
 
 /**
@@ -5030,7 +5029,7 @@ function loadScript(options, cb) {
 
 module.exports = loadScript;
 
-},{"component-type":70,"next-tick":88,"script-onload":91}],42:[function(require,module,exports){
+},{"component-type":70,"next-tick":87,"script-onload":90}],42:[function(require,module,exports){
 'use strict';
 
 var keys = require('@ndhoule/keys');
@@ -6986,7 +6985,7 @@ function getTld(domain) {
   return domain.split('.').splice(-2).join('.');
 }
 
-},{"@ndhoule/extend":10,"@ndhoule/keys":13,"@segment/ad-params":17,"@segment/analytics.js-integration":30,"@segment/localstorage-retry":43,"@segment/protocol":52,"@segment/send-json":53,"@segment/top-domain":55,"@segment/utm-params":56,"component-clone":61,"component-cookie":62,"json3":78,"spark-md5":104,"uuid":111,"yields-store":112}],59:[function(require,module,exports){
+},{"@ndhoule/extend":10,"@ndhoule/keys":13,"@segment/ad-params":17,"@segment/analytics.js-integration":30,"@segment/localstorage-retry":43,"@segment/protocol":52,"@segment/send-json":53,"@segment/top-domain":55,"@segment/utm-params":56,"component-clone":61,"component-cookie":62,"json3":78,"spark-md5":103,"uuid":110,"yields-store":111}],59:[function(require,module,exports){
 'use strict';
 
 var bind = require('component-bind');
@@ -7312,7 +7311,7 @@ function array(obj, fn, ctx) {
   }
 }
 
-},{"component-type":64,"to-function":105,"type":64}],64:[function(require,module,exports){
+},{"component-type":64,"to-function":104,"type":64}],64:[function(require,module,exports){
 
 /**
  * toString ref.
@@ -7741,7 +7740,7 @@ exports.stringify = function(obj){
   return pairs.join('&');
 };
 
-},{"trim":107,"type":69}],69:[function(require,module,exports){
+},{"trim":106,"type":69}],69:[function(require,module,exports){
 /**
  * toString ref.
  */
@@ -10020,9 +10019,9 @@ function jsonp(url, opts, fn){
 
 },{"debug":80}],80:[function(require,module,exports){
 arguments[4][33][0].apply(exports,arguments)
-},{"./debug":81,"_process":90,"dup":33}],81:[function(require,module,exports){
+},{"./debug":81,"_process":89,"dup":33}],81:[function(require,module,exports){
 arguments[4][34][0].apply(exports,arguments)
-},{"dup":34,"ms":84}],82:[function(require,module,exports){
+},{"dup":34,"ms":83}],82:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -10084,574 +10083,7 @@ module.exports = function loadIframe(options, fn){
   return iframe;
 };
 
-},{"is":77,"next-tick":88,"script-onload":91}],83:[function(require,module,exports){
-/**
- * lodash (Custom Build) <https://lodash.com/>
- * Build: `lodash modularize exports="npm" -o ./`
- * Copyright jQuery Foundation and other contributors <https://jquery.org/>
- * Released under MIT license <https://lodash.com/license>
- * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
- * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
- */
-
-/** Used as references for various `Number` constants. */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]',
-    funcTag = '[object Function]',
-    genTag = '[object GeneratorFunction]';
-
-/** Used to detect unsigned integer values. */
-var reIsUint = /^(?:0|[1-9]\d*)$/;
-
-/**
- * A specialized version of `_.forEach` for arrays without support for
- * iteratee shorthands.
- *
- * @private
- * @param {Array} [array] The array to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns `array`.
- */
-function arrayEach(array, iteratee) {
-  var index = -1,
-      length = array ? array.length : 0;
-
-  while (++index < length) {
-    if (iteratee(array[index], index, array) === false) {
-      break;
-    }
-  }
-  return array;
-}
-
-/**
- * The base implementation of `_.times` without support for iteratee shorthands
- * or max array length checks.
- *
- * @private
- * @param {number} n The number of times to invoke `iteratee`.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns the array of results.
- */
-function baseTimes(n, iteratee) {
-  var index = -1,
-      result = Array(n);
-
-  while (++index < n) {
-    result[index] = iteratee(index);
-  }
-  return result;
-}
-
-/**
- * Creates a unary function that invokes `func` with its argument transformed.
- *
- * @private
- * @param {Function} func The function to wrap.
- * @param {Function} transform The argument transform.
- * @returns {Function} Returns the new function.
- */
-function overArg(func, transform) {
-  return function(arg) {
-    return func(transform(arg));
-  };
-}
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objectToString = objectProto.toString;
-
-/** Built-in value references. */
-var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeKeys = overArg(Object.keys, Object);
-
-/**
- * Creates an array of the enumerable property names of the array-like `value`.
- *
- * @private
- * @param {*} value The value to query.
- * @param {boolean} inherited Specify returning inherited property names.
- * @returns {Array} Returns the array of property names.
- */
-function arrayLikeKeys(value, inherited) {
-  // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
-  // Safari 9 makes `arguments.length` enumerable in strict mode.
-  var result = (isArray(value) || isArguments(value))
-    ? baseTimes(value.length, String)
-    : [];
-
-  var length = result.length,
-      skipIndexes = !!length;
-
-  for (var key in value) {
-    if ((inherited || hasOwnProperty.call(value, key)) &&
-        !(skipIndexes && (key == 'length' || isIndex(key, length)))) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-/**
- * The base implementation of `_.forEach` without support for iteratee shorthands.
- *
- * @private
- * @param {Array|Object} collection The collection to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array|Object} Returns `collection`.
- */
-var baseEach = createBaseEach(baseForOwn);
-
-/**
- * The base implementation of `baseForOwn` which iterates over `object`
- * properties returned by `keysFunc` and invokes `iteratee` for each property.
- * Iteratee functions may exit iteration early by explicitly returning `false`.
- *
- * @private
- * @param {Object} object The object to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @param {Function} keysFunc The function to get the keys of `object`.
- * @returns {Object} Returns `object`.
- */
-var baseFor = createBaseFor();
-
-/**
- * The base implementation of `_.forOwn` without support for iteratee shorthands.
- *
- * @private
- * @param {Object} object The object to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Object} Returns `object`.
- */
-function baseForOwn(object, iteratee) {
-  return object && baseFor(object, iteratee, keys);
-}
-
-/**
- * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- */
-function baseKeys(object) {
-  if (!isPrototype(object)) {
-    return nativeKeys(object);
-  }
-  var result = [];
-  for (var key in Object(object)) {
-    if (hasOwnProperty.call(object, key) && key != 'constructor') {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-/**
- * Creates a `baseEach` or `baseEachRight` function.
- *
- * @private
- * @param {Function} eachFunc The function to iterate over a collection.
- * @param {boolean} [fromRight] Specify iterating from right to left.
- * @returns {Function} Returns the new base function.
- */
-function createBaseEach(eachFunc, fromRight) {
-  return function(collection, iteratee) {
-    if (collection == null) {
-      return collection;
-    }
-    if (!isArrayLike(collection)) {
-      return eachFunc(collection, iteratee);
-    }
-    var length = collection.length,
-        index = fromRight ? length : -1,
-        iterable = Object(collection);
-
-    while ((fromRight ? index-- : ++index < length)) {
-      if (iteratee(iterable[index], index, iterable) === false) {
-        break;
-      }
-    }
-    return collection;
-  };
-}
-
-/**
- * Creates a base function for methods like `_.forIn` and `_.forOwn`.
- *
- * @private
- * @param {boolean} [fromRight] Specify iterating from right to left.
- * @returns {Function} Returns the new base function.
- */
-function createBaseFor(fromRight) {
-  return function(object, iteratee, keysFunc) {
-    var index = -1,
-        iterable = Object(object),
-        props = keysFunc(object),
-        length = props.length;
-
-    while (length--) {
-      var key = props[fromRight ? length : ++index];
-      if (iteratee(iterable[key], key, iterable) === false) {
-        break;
-      }
-    }
-    return object;
-  };
-}
-
-/**
- * Checks if `value` is a valid array-like index.
- *
- * @private
- * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
- * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
- */
-function isIndex(value, length) {
-  length = length == null ? MAX_SAFE_INTEGER : length;
-  return !!length &&
-    (typeof value == 'number' || reIsUint.test(value)) &&
-    (value > -1 && value % 1 == 0 && value < length);
-}
-
-/**
- * Checks if `value` is likely a prototype object.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
- */
-function isPrototype(value) {
-  var Ctor = value && value.constructor,
-      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto;
-
-  return value === proto;
-}
-
-/**
- * Iterates over elements of `collection` and invokes `iteratee` for each element.
- * The iteratee is invoked with three arguments: (value, index|key, collection).
- * Iteratee functions may exit iteration early by explicitly returning `false`.
- *
- * **Note:** As with other "Collections" methods, objects with a "length"
- * property are iterated like arrays. To avoid this behavior use `_.forIn`
- * or `_.forOwn` for object iteration.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @alias each
- * @category Collection
- * @param {Array|Object} collection The collection to iterate over.
- * @param {Function} [iteratee=_.identity] The function invoked per iteration.
- * @returns {Array|Object} Returns `collection`.
- * @see _.forEachRight
- * @example
- *
- * _([1, 2]).forEach(function(value) {
- *   console.log(value);
- * });
- * // => Logs `1` then `2`.
- *
- * _.forEach({ 'a': 1, 'b': 2 }, function(value, key) {
- *   console.log(key);
- * });
- * // => Logs 'a' then 'b' (iteration order is not guaranteed).
- */
-function forEach(collection, iteratee) {
-  var func = isArray(collection) ? arrayEach : baseEach;
-  return func(collection, typeof iteratee == 'function' ? iteratee : identity);
-}
-
-/**
- * Checks if `value` is likely an `arguments` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an `arguments` object,
- *  else `false`.
- * @example
- *
- * _.isArguments(function() { return arguments; }());
- * // => true
- *
- * _.isArguments([1, 2, 3]);
- * // => false
- */
-function isArguments(value) {
-  // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
-  return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') &&
-    (!propertyIsEnumerable.call(value, 'callee') || objectToString.call(value) == argsTag);
-}
-
-/**
- * Checks if `value` is classified as an `Array` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an array, else `false`.
- * @example
- *
- * _.isArray([1, 2, 3]);
- * // => true
- *
- * _.isArray(document.body.children);
- * // => false
- *
- * _.isArray('abc');
- * // => false
- *
- * _.isArray(_.noop);
- * // => false
- */
-var isArray = Array.isArray;
-
-/**
- * Checks if `value` is array-like. A value is considered array-like if it's
- * not a function and has a `value.length` that's an integer greater than or
- * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
- * @example
- *
- * _.isArrayLike([1, 2, 3]);
- * // => true
- *
- * _.isArrayLike(document.body.children);
- * // => true
- *
- * _.isArrayLike('abc');
- * // => true
- *
- * _.isArrayLike(_.noop);
- * // => false
- */
-function isArrayLike(value) {
-  return value != null && isLength(value.length) && !isFunction(value);
-}
-
-/**
- * This method is like `_.isArrayLike` except that it also checks if `value`
- * is an object.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an array-like object,
- *  else `false`.
- * @example
- *
- * _.isArrayLikeObject([1, 2, 3]);
- * // => true
- *
- * _.isArrayLikeObject(document.body.children);
- * // => true
- *
- * _.isArrayLikeObject('abc');
- * // => false
- *
- * _.isArrayLikeObject(_.noop);
- * // => false
- */
-function isArrayLikeObject(value) {
-  return isObjectLike(value) && isArrayLike(value);
-}
-
-/**
- * Checks if `value` is classified as a `Function` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a function, else `false`.
- * @example
- *
- * _.isFunction(_);
- * // => true
- *
- * _.isFunction(/abc/);
- * // => false
- */
-function isFunction(value) {
-  // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in Safari 8-9 which returns 'object' for typed array and other constructors.
-  var tag = isObject(value) ? objectToString.call(value) : '';
-  return tag == funcTag || tag == genTag;
-}
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This method is loosely based on
- * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- * @example
- *
- * _.isLength(3);
- * // => true
- *
- * _.isLength(Number.MIN_VALUE);
- * // => false
- *
- * _.isLength(Infinity);
- * // => false
- *
- * _.isLength('3');
- * // => false
- */
-function isLength(value) {
-  return typeof value == 'number' &&
-    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-/**
- * Checks if `value` is the
- * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
- * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(_.noop);
- * // => true
- *
- * _.isObject(null);
- * // => false
- */
-function isObject(value) {
-  var type = typeof value;
-  return !!value && (type == 'object' || type == 'function');
-}
-
-/**
- * Checks if `value` is object-like. A value is object-like if it's not `null`
- * and has a `typeof` result of "object".
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- * @example
- *
- * _.isObjectLike({});
- * // => true
- *
- * _.isObjectLike([1, 2, 3]);
- * // => true
- *
- * _.isObjectLike(_.noop);
- * // => false
- *
- * _.isObjectLike(null);
- * // => false
- */
-function isObjectLike(value) {
-  return !!value && typeof value == 'object';
-}
-
-/**
- * Creates an array of the own enumerable property names of `object`.
- *
- * **Note:** Non-object values are coerced to objects. See the
- * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
- * for more details.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.keys(new Foo);
- * // => ['a', 'b'] (iteration order is not guaranteed)
- *
- * _.keys('hi');
- * // => ['0', '1']
- */
-function keys(object) {
-  return isArrayLike(object) ? arrayLikeKeys(object) : baseKeys(object);
-}
-
-/**
- * This method returns the first argument it receives.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Util
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'a': 1 };
- *
- * console.log(_.identity(object) === object);
- * // => true
- */
-function identity(value) {
-  return value;
-}
-
-module.exports = forEach;
-
-},{}],84:[function(require,module,exports){
+},{"is":77,"next-tick":87,"script-onload":90}],83:[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -10805,7 +10237,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],85:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 'use strict';
 
 var is = require('is');
@@ -10850,7 +10282,7 @@ function toMs(num) {
   return num;
 }
 
-},{"./milliseconds":86,"./seconds":87,"@segment/isodate":40,"is":77}],86:[function(require,module,exports){
+},{"./milliseconds":85,"./seconds":86,"@segment/isodate":40,"is":77}],85:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10882,7 +10314,7 @@ exports.parse = function(millis) {
   return new Date(millis);
 };
 
-},{}],87:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 'use strict';
 
 /**
@@ -10914,7 +10346,7 @@ exports.parse = function(seconds) {
   return new Date(millis);
 };
 
-},{}],88:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -10982,7 +10414,7 @@ module.exports = (function () {
 }());
 
 }).call(this,require('_process'))
-},{"_process":90}],89:[function(require,module,exports){
+},{"_process":89}],88:[function(require,module,exports){
 
 var identity = function(_){ return _; };
 
@@ -11136,7 +10568,7 @@ function isFunction(val) {
   return typeof val === 'function';
 }
 
-},{}],90:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -11322,7 +10754,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],91:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 
 // https://github.com/thirdpartyjs/thirdpartyjs-code/blob/master/examples/templates/02/loading-files/index.html
 
@@ -11377,7 +10809,7 @@ function attach(el, fn){
   });
 }
 
-},{}],92:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 'use strict';
 
 /**
@@ -11416,7 +10848,7 @@ module.exports = function(proto) {
   }
 };
 
-},{"obj-case":89}],93:[function(require,module,exports){
+},{"obj-case":88}],92:[function(require,module,exports){
 'use strict';
 
 /**
@@ -11487,7 +10919,7 @@ Alias.prototype.to = Alias.prototype.userId;
 
 module.exports = Alias;
 
-},{"./facade":94,"./utils":102}],94:[function(require,module,exports){
+},{"./facade":93,"./utils":101}],93:[function(require,module,exports){
 'use strict';
 
 var address = require('./address');
@@ -11801,7 +11233,7 @@ function transform(obj) {
 
 module.exports = Facade;
 
-},{"./address":92,"./is-enabled":98,"./utils":102,"@segment/isodate-traverse":39,"new-date":85,"obj-case":89}],95:[function(require,module,exports){
+},{"./address":91,"./is-enabled":97,"./utils":101,"@segment/isodate-traverse":39,"new-date":84,"obj-case":88}],94:[function(require,module,exports){
 'use strict';
 
 /**
@@ -11922,7 +11354,7 @@ Group.prototype.properties = function() {
 
 module.exports = Group;
 
-},{"./facade":94,"./utils":102,"is-email":76,"new-date":85}],96:[function(require,module,exports){
+},{"./facade":93,"./utils":101,"is-email":76,"new-date":84}],95:[function(require,module,exports){
 'use strict';
 
 var Facade = require('./facade');
@@ -12167,7 +11599,7 @@ Identify.prototype.birthday = Facade.proxy('traits.birthday');
 
 module.exports = Identify;
 
-},{"./facade":94,"./utils":102,"is-email":76,"new-date":85,"obj-case":89,"trim":107}],97:[function(require,module,exports){
+},{"./facade":93,"./utils":101,"is-email":76,"new-date":84,"obj-case":88,"trim":106}],96:[function(require,module,exports){
 'use strict';
 
 var Facade = require('./facade');
@@ -12189,7 +11621,7 @@ Facade.Screen = require('./screen');
 
 module.exports = Facade;
 
-},{"./alias":93,"./facade":94,"./group":95,"./identify":96,"./page":99,"./screen":100,"./track":101}],98:[function(require,module,exports){
+},{"./alias":92,"./facade":93,"./group":94,"./identify":95,"./page":98,"./screen":99,"./track":100}],97:[function(require,module,exports){
 'use strict';
 
 /**
@@ -12212,7 +11644,7 @@ module.exports = function(integration) {
   return !disabled[integration];
 };
 
-},{}],99:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 'use strict';
 
 var inherit = require('./utils').inherit;
@@ -12361,7 +11793,7 @@ Page.prototype.track = function(name) {
 
 module.exports = Page;
 
-},{"./facade":94,"./track":101,"./utils":102,"is-email":76}],100:[function(require,module,exports){
+},{"./facade":93,"./track":100,"./utils":101,"is-email":76}],99:[function(require,module,exports){
 'use strict';
 
 var inherit = require('./utils').inherit;
@@ -12433,7 +11865,7 @@ Screen.prototype.track = function(name) {
 
 module.exports = Screen;
 
-},{"./page":99,"./track":101,"./utils":102}],101:[function(require,module,exports){
+},{"./page":98,"./track":100,"./utils":101}],100:[function(require,module,exports){
 'use strict';
 
 var inherit = require('./utils').inherit;
@@ -12760,14 +12192,14 @@ function currency(val) {
 
 module.exports = Track;
 
-},{"./facade":94,"./identify":96,"./utils":102,"is-email":76,"obj-case":89}],102:[function(require,module,exports){
+},{"./facade":93,"./identify":95,"./utils":101,"is-email":76,"obj-case":88}],101:[function(require,module,exports){
 'use strict';
 
 exports.inherit = require('inherits');
 exports.clone = require('@ndhoule/clone');
 exports.type = require('type-component');
 
-},{"@ndhoule/clone":5,"inherits":75,"type-component":108}],103:[function(require,module,exports){
+},{"@ndhoule/clone":5,"inherits":75,"type-component":107}],102:[function(require,module,exports){
 
 /**
  * Generate a slug from the given `str`.
@@ -12792,7 +12224,7 @@ module.exports = function (str, options) {
     .replace(/ +/g, options.separator || '-')
 };
 
-},{}],104:[function(require,module,exports){
+},{}],103:[function(require,module,exports){
 (function (factory) {
     if (typeof exports === 'object') {
         // Node/CommonJS
@@ -13497,7 +12929,7 @@ module.exports = function (str, options) {
     return SparkMD5;
 }));
 
-},{}],105:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 
 /**
  * Module Dependencies
@@ -13651,7 +13083,7 @@ function stripNested (prop, str, val) {
   });
 }
 
-},{"component-props":67,"props":67}],106:[function(require,module,exports){
+},{"component-props":67,"props":67}],105:[function(require,module,exports){
 
 /**
  * Expose `toNoCase`.
@@ -13723,7 +13155,7 @@ function uncamelize (string) {
     return previous + ' ' + uppers.toLowerCase().split('').join(' ');
   });
 }
-},{}],107:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 
 exports = module.exports = trim;
 
@@ -13739,7 +13171,7 @@ exports.right = function(str){
   return str.replace(/\s*$/, '');
 };
 
-},{}],108:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 
 /**
  * toString ref.
@@ -13771,7 +13203,7 @@ module.exports = function(val){
   return typeof val;
 };
 
-},{}],109:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 module.exports = encode;
 
 function encode(string) {
@@ -13799,7 +13231,7 @@ function encode(string) {
 
     return utftext;
 }
-},{}],110:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 (function (global){
 
 var rng;
@@ -13835,7 +13267,7 @@ module.exports = rng;
 
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],111:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 //     uuid.js
 //
 //     Copyright (c) 2010-2012 Robert Kieffer
@@ -14020,7 +13452,7 @@ uuid.unparse = unparse;
 
 module.exports = uuid;
 
-},{"./rng":110}],112:[function(require,module,exports){
+},{"./rng":109}],111:[function(require,module,exports){
 
 /**
  * dependencies.
@@ -14115,7 +13547,7 @@ function all(){
   return ret;
 }
 
-},{"each":63,"unserialize":113}],113:[function(require,module,exports){
+},{"each":63,"unserialize":112}],112:[function(require,module,exports){
 
 /**
  * Unserialize the given "stringified" javascript.
@@ -14132,7 +13564,7 @@ module.exports = function(val){
   }
 };
 
-},{}],114:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 module.exports={
   "name": "analytics.js",
   "author": "Segment.io <friends@segment.io>",
@@ -14163,7 +13595,7 @@ module.exports={
     "@segment/analytics.js-core": "^3.0.0",
     "@segment/analytics.js-integration-segmentio": "github:segment-integrations/analytics.js-integration-segmentio",
     "analytics.js-integration-prezly": "github:prezly/analytics.js-integration-prezly",
-    "lodash.foreach": "^4.5.0"
+    "component-each": "github:component/each"
   },
   "devDependencies": {
     "browserify": "^14.4.0",
