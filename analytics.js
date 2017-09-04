@@ -6538,6 +6538,7 @@ var queueOptions = {
 var Prezly = exports = module.exports = integration('Prezly')
   .option('apiKey', '')
   .option('apiHost', 'api.segment.io/v1')
+  .option('apiCallPayload', {})
   .option('crossDomainIdServers', [])
   .option('retryQueue', false)
   .option('addBundledMetadata', false)
@@ -6772,7 +6773,7 @@ Prezly.prototype.enqueue = function(path, msg, fn) {
       msg: msg
     });
   } else {
-    send(url, msg, headers, function(err, res) {
+    send(url, Object.assign({}, msg, this.options.apiCallPayload), headers, function(err, res) {
       self.debug('sent %O, received %O', msg, [err, res]);
       if (fn) {
         if (err) return fn(err);
