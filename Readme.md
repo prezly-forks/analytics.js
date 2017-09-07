@@ -1,50 +1,27 @@
-# Analytics.js
+# About Analytics.js
 
 Analytics.js makes it easy to collect customer data and send it to many different tools using a single, unified API.
-
-Analytics.js is open source and is one of the libraries that powers [Segment](https://segment.com), the managed, hassle-free way to collect customer data in the browser and beyond.
-
-For our mobile and server-side data collection libraries, check out our [libraries][] page.
-
-## Documentation
-
-First, read the [Analytics.js QuickStart][], which contains installation instructions and a brief overview of what Analytics.js does and how it works.
-
-For more detail on the Analytics.js API, check out the [Analytics.js Library Reference][].
-
-## Analytics.js for Platforms
-
-Analytics.js for Platforms is a version of analytics.js built specifically for website creation and e-commerce platforms to give their customers one-click enablement of Google Analytics, Facebook Pixel, Google Adwords, and Segment. For more information, you can check out the [docs for Analytics.js for Platforms](https://segment.com/docs/guides/partners/analyticsjs-for-platforms/). Segment hosts this version of the library for free use on its CDN.
+The end goal of this Analytics.js fork is to only build `PrezlyIntegration` integration so our customers can use the Prezly analytics.js which has the identical api and payload as Segment.com analytics.js
 
 ## Building
 ```js
 npm run build
 ```
 
-It will generate analytics.js and analytics.min.js
+It will generate:
+- analytics.js - Useful for including into a already established build process
+- analytics.min.js - To be hosted on CDN so customers can just embed it
 
-## Contributing
+## Usage
 
-This repository houses a pre-built, open-source version of analytics.js. The core logic of analytics.js is broken out into individual repositories:
+Following snippet of code will be enough for customer to start submitting events to Prezly API:
 
-- To report an issue with analytics.js itself, head over to [analytics.js-core][], where the core analytics.js logic is maintained.
-- To report an issue with an integration. head over to the [analytics.js-integrations][] organization, where we keep each integration in its own repository.
+```js
+    analytics.init({
+        Prezly: {
+            apiHost: "//press.prezly.dev/segment",
+        },
+    });
 
-If you're not sure where to open an issue, feel free to open an issue against this repository or [contact us](https://segment.com/contact) and we'll help point you in the right direction.
-
-## License
-
-Released under the [MIT license](License.md).
-
-
-
-[analytics.js library reference]: https://segment.com/docs/libraries/analytics.js
-[analytics.js quickstart]: https://segment.com/docs/tutorials/quickstart-analytics.js
-[analytics.js-core]: https://github.com/segmentio/analytics.js-core
-[analytics.js-integrations]: https://github.com/segment-integrations?q=analytics.js-integration
-[ci-badge]: https://travis-ci.org/segmentio/analytics.js.png?branch=master
-[ci-link]: https://travis-ci.org/segmentio/analytics.js
-[integrations]: https://segment.com/integrations
-[libraries]: https://segment.com/libraries
-[nodejs.org]: https://nodejs.org/
-[spec]: https://segment.com/docs/spec/
+    analytics.page();
+```
